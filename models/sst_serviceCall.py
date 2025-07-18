@@ -3,7 +3,7 @@
 from odoo import models, fields
 
 class ProductType(models.Model):
-    _name = 'sst.producttype'
+    _name = 'sst.serviceCall.producttype'
     _description = 'Product Type'
 
     producttype = fields.Char('Product Type')
@@ -13,7 +13,7 @@ class sst_serviceCall(models.Model):
     _name = 'sst.serviceCall'
     _description = 'Service Call'
 
-    productType = fields.Many2one('sst.producttype', string='Product Type', required=True)
+    productType = fields.Many2one('sst.serviceCall.producttype', string='Product Type', required=True)
     callDate = fields.Date('Call Date', required=True)
     contactMathod = fields.Selection(
         selection=[

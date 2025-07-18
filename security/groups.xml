@@ -1,0 +1,13 @@
+<odoo>
+<record id="group_sst_serviceCall_user" model="res.groups">
+<field name="name">User</field>
+<field name="category_id" ref="base.module_category_sst_serviceCall"/>
+<field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+</record>
+<record id="group_sst_serviceCall_admin" model="res.groups">
+<field name="name">Administrator</field>
+<field name="category_id" ref="base.module_category_sst_serviceCall"/>
+<field name="implied_ids" eval="[(4, ref('group_sst_serviceCall_user'))]"/>
+<field name="users" eval="[(4, ref('base.user_admin'))]"/>
+</record>
+</odoo>

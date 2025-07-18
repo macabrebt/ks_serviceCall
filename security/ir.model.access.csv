@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sst_serviceCall,sst.serviceCall_default,model_sst_serviceCall,group_sst_serviceCall_user,1,0,0,0
+access_sst_serviceCall_admin,sst.serviceCall_admin,model_sst_serviceCall,group_sst_serviceCall_admin,1,1,1,1
+access_sst_serviceCall_producttype_user,sst.serviceCall.producttype_default,model_sst_serviceCall_producttype,group_sst_serviceCall_user,1,0,0,0
+access_sst_serviceCall_producttype_admin,sst.serviceCall.producttype_admin,model_sst_serviceCall_producttype,group_sst_serviceCall_admin,1,1,1,1
