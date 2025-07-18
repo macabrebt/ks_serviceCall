@@ -1,0 +1,31 @@
+<odoo>
+        <!--
+        Partners Extension
+        -->
+        <record id="view_partner_property_form" model="ir.ui.view">
+            <field name="name">res.partner.property.form.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="priority">2</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                    <page name="invoicing" position="after">
+                        <page string="Service Call" name="serviceCall">
+                            <group>
+                                <field name="serviceCall_ids" nolabel="0" context="{'default_owner' : active_id}">
+                                    <tree string="Service Calls" editable="bottom">
+                                        <field name="callDate"/>
+                                        <field name="productType" widget="many2one_tags"/>
+                                        <field name="contactMathod"/>
+                                        <field name="serviceTerm"/>
+                                        <field name="description"/>
+                                        <field name="callStatus"/>
+                                        <field name="shipment"/>
+                                        <field name="notes"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                    </page>
+            </field>
+        </record>
+</odoo>
