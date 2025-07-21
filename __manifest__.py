@@ -26,7 +26,7 @@
         'views/sst_serviceCall.xml',
         'views/res_partner_views.xml',
     ],
-    'license': 'MIT',
+    'license': 'LGPL-3',
     'images': ['static/description/icon.png'],
     "installable": True,
     "application": True,
