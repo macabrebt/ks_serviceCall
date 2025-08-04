@@ -8,19 +8,17 @@
             <field name="priority">2</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
-                    <page name="invoicing" position="after">
-                        <page string="Service Call" name="serviceCall">
+                    <page name="internal_notes" position="before">
+                        <page string="Service Calls" name="service_calls">
                             <group>
-                                <field name="serviceCall_ids" nolabel="0" context="{'default_owner' : active_id}">
+                                <field name="service_call_ids" nolabel="0" context="{'default_owner' : active_id}">
                                     <tree string="Service Calls" editable="bottom">
-                                        <field name="callDate"/>
-                                        <field name="productType" widget="many2one_tags"/>
-                                        <field name="contactMathod"/>
-                                        <field name="serviceTerm"/>
+                                        <field name="call_date"/>
+                                        <field name="ks_product_type" widget="many2one_tags"/>
+                                        <field name="contact_method"/>
+                                        <field name="service_term"/>
                                         <field name="description"/>
-                                        <field name="callStatus"/>
-                                        <field name="shipment"/>
-                                        <field name="notes"/>
+                                        <field name="call_status"/>
                                     </tree>
                                 </field>
                             </group>

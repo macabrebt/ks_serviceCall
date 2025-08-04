@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id='action_ks_service_calls' model='ir.actions.act_window'>
+        <field name="name">Service Calls</field>
+        <field name="res_model">ks.service.call</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a service call
+          </p><p>
+            This app helps you to easily track all service calls related to a customer.
+          </p>
+        </field>
+    </record>
+
+    <record id="view_all_service_calls_kanban" model="ir.ui.view">
+        <field name="name">ks.service.calls.view.kanban</field>
+        <field name="model">ks.service.call</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="call_date"/>
+                <field name="ks_product_type" widget="many2one_tags"/>
+                <field name="contact_method"/>
+                <field name="service_term"/>
+                <field name="description"/>
+                <field name="call_status"/>
+                <field name="shipment"/>
+
+                <field name="owner" widget="many2one_tags"/>
+                <field name="notes"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                            <div>
+                                <strong>Date:</strong> <field name="call_date"/>
+                            </div>
+                            <div>
+                                <strong>Product Type:</strong> <field name="ks_product_type"/>
+                            </div>
+                            <div>
+                                <strong>Contact Mathod:</strong> <field name="contact_method"/>
+                            </div>
+                            <div>
+                                <strong>Service Term:</strong> <field name="service_term"/>
+                            </div>
+                            <div>
+                                <strong>Description:</strong> <field name="description"/>
+                            </div>
+                            <div>
+                                <strong>Status:</strong> <field name="call_status"/>
+                            </div>
+                            <div>
+                                <strong>Shipment:</strong> <field name="shipment"/>
+                            </div>
+                            <div>
+                                <strong>Note:</strong> <field name="notes"/>
+                            </div>
+                            <div>
+                                <strong>Owner:</strong> <field name="owner"/>
+                            </div>
+                            <div>
+                                <strong>Created on:</strong> <field name="create_date"/>
+                            </div>
+                            <div>
+                                <strong>Created by:</strong> <field name="create_uid"/>
+                            </div>
+                         </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_all_service_calls_tree" model="ir.ui.view">
+        <field name="name">ks.service.calls.view.tree</field>
+        <field name="model">ks.service.call</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="call_date"/>
+                <field name="ks_product_type" widget="many2one_tags"/>
+                <field name="contact_method"/>
+                <field name="service_term"/>
+                <field name="description"/>
+                <field name="call_status"/>
+                <field name="shipment"/>
+
+                <field name="owner" widget="many2one_tags"/>
+                <field name="notes"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_all_service_calls_form" model="ir.ui.view">
+        <field name="name">ks.service.calls.view.form</field>
+        <field name="model">ks.service.call</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="call_date"/>
+                        <field name="ks_product_type" widget="many2one_tags"/>
+                       <field name="contact_method"/>
+                       <field name="service_term"/>
+                        <field name="description"/>
+                       <field name="call_status"/>
+                        <field name="shipment"/>
+                    </group>
+                    <group>
+                        <field name="owner" widget="many2one_tags"/>
+                        <field name="create_date"/>
+                        <field name="create_uid" widget="many2one_tags"/>
+                        <field name="write_date"/>
+                        <field name="write_uid" widget="many2one_tags"/>
+                    </group>
+                    <group>
+                        <field name="notes"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="ks_service_call_product_type_tree_view" model="ir.ui.view">
+        <field name="name">ks.service.call.product.type.tree</field>
+        <field name="model">ks.service.call.product.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="product_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id='action_ks_service_call_product_type' model='ir.actions.act_window'>
+        <field name="name">Product Type</field>
+        <field name="res_model">ks.service.call.product.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="ks_service_call_product_type_tree_view"/>
+    </record>
+
+    <menuitem id="menu_service_call_top_level" name="Service Calls" web_icon="ks_service_call,static/description/icon.png"/>
+    <menuitem id="menu_ks_service_calls" parent="menu_service_call_top_level" action="action_ks_service_calls" sequence="2" groups="" />
+
+    <menuitem id="menu_ks_service_call_config"
+        name="Configuration"
+        parent="menu_service_call_top_level"
+        groups="base.group_system"
+        sequence="2"/>
+	
+    <menuitem id="menu_ks_service_call_product_type"
+        action="action_ks_service_call_product_type"
+        name="Product Type" parent="menu_ks_service_call_config"
+        sequence="1"/>
+
+    <!-- Search View -->
+    <record id="ks_service_call_view_search" model="ir.ui.view">
+        <field name="name">ks.service.calls.view.search</field>
+        <field name="model">ks.service.call</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="call_date"/>
+                <field name="ks_product_type" widget="many2one_tags"/>
+                <field name="contact_method"/>
+                <field name="service_term"/>
+                <field name="description"/>
+                <field name="call_status"/>
+                <field name="shipment"/>
+                <field name="owner"/>
+                <field name="notes"/>
+            </search>
+        </field>
+    </record>
+
+
+</odoo>
