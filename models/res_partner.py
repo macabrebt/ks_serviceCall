@@ -6,11 +6,11 @@ class ResPartner(models.Model):
     _inherit = "res.partner"
 
 
-    serviceCall_ids = fields.One2many('sst.serviceCall', 'owner', string='Service Call')
+    service_call_ids = fields.One2many('ks.service.call', 'owner', string=' ')
 
-    serviceCalls_count = fields.Integer(string='Number of service calls', compute='_compute_count_servicecalls')
+    service_calls_count = fields.Integer(string='Number of service calls', compute='_compute_count_service_calls')
 
-    @api.depends('serviceCall_ids')
-    def _compute_count_servicelCalls(self):
+    @api.depends('service_call_ids')
+    def _compute_count_servicel_calls(self):
         for r in self:
-            r.serviceCalls_count = len(r.serviceCall_ids)
+            r.service_calls_count = len(r.service_call_ids)
