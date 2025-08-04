@@ -10,7 +10,7 @@
     """,
 
     'author': "Kai Song",
-    'website': "https://www.sstuvled.com",
+    'website': "https://github.com/macabrebt/ks_serviceCall",
 
     'category': 'Services',
     'version': '17.0.1.0.0',
