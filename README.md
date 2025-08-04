@@ -1,2 +1,2 @@
 # ks_serviceCall
-This odoo app can record and organize service Calls
+This Odoo app tracks and organizes service calls.
